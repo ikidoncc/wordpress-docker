@@ -33,7 +33,13 @@ $ docker-compose up -d
 ```
 > the -d flag will make containers run in the background.
 
-### 2 - Change the owner of the "~/www/wordpress" directory:
+### 2 - Change the owner of the "/var/www/html" directory inside the container:
+```bash
+$ docker exec -it wordpress-app chown -R www-data:www-data /var/www/html
+```
+> this will give permission to manipulate wordpress without it requesting an ftp connection.
+
+### 3 - Change the owner of the "~/www/wordpress" directory:
 ```bash
 $ sudo chown -R $USER ~/www/wordpress
 ```
